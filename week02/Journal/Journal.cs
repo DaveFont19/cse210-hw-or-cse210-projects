@@ -5,23 +5,32 @@ class Journal
     PromptGenerator _prompt = new PromptGenerator();
     public void ShowEntries()
     {
-        foreach (Entry _e in _entries)
+        foreach (Entry e in _entries)
         {
-            _e.ShowEntry();
+            e.ShowEntry();
         }
     }
     public void SaveJournal(string _fileName)
     {
-        File.WriteAllText(_fileName, "Hello");
+        using (StreamWriter sw = File.CreateText(_fileName))
+        { foreach (Entry e in _entries)
+        {
+            sw.WriteLine(e.SaveEntriesJournal());
+        }
+        }
     }
     public void NewEntry()
     {
         Entry _entry1 = new Entry();
-        string _p = _prompt.Question();
-        Console.WriteLine(_p);
-        _entry1._entry = Console.ReadLine();
-        _entry1._prompt = _p;
-        _entry1._date = _today.ToString("dd/MM/yyyy");
+        string p = _prompt.Question();
+        Console.WriteLine(p);
+        _entry1.entry = Console.ReadLine();
+        _entry1.prompt = p;
+        _entry1.date = _today.ToString("dd/MM/yyyy");
         _entries.Add(_entry1);
+    }
+    public string LoadJournal(){
+        string loadJournal = "";
+        return loadJournal;
     }
 }
