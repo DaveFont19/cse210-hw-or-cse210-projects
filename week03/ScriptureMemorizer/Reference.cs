@@ -4,9 +4,9 @@ class Reference
 {
     private string _book, _words;
     private string[] _allText;
-    public int _chapter, _verse, _endVerse;
+    private int _chapter, _verse, _endVerse;
     ReadFile _r = new ReadFile();
-    
+
     public void GetAllText()
     {
         string _text = _r.ReadFiles();
@@ -17,7 +17,7 @@ class Reference
     {
         Random _ran = new Random();
 
-        int num = _ran.Next(0, _allText.Length - 1);
+        int num = _ran.Next(0, _allText.Length -1);
         string[] _scritpure = Regex.Split(_allText[num], "~");
         _book = _scritpure[0];
         _chapter = int.Parse(_scritpure[1]);
@@ -26,7 +26,7 @@ class Reference
         {
             _endVerse = int.Parse(_scritpure[3]);
             _words = _scritpure[4];
-            
+
         }
         else
         {
@@ -41,7 +41,11 @@ class Reference
             : $"{_book} {_chapter}:{_verse}";
     }
 
-    public string GetText(){
+    public string GetText()
+    {
         return _words;
+    }
+    public void SetText(string t){
+        _words = t;
     }
 }

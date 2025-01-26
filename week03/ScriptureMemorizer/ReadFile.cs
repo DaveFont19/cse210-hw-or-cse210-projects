@@ -1,12 +1,15 @@
 class ReadFile
 {
-    public string ReadFiles(){
+    public string ReadFiles()
+    {
         string link = "scriptures.txt";
-        if(File.Exists(link)){
-           string content = File.ReadAllText(link);
-           return content;
+        if (File.Exists(link))
+        {
+            string content = File.ReadAllText(link);
+            return content;
         }
-        else{
+        else
+        {
             return "nothing";
         }
     }
