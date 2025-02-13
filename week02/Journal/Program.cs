@@ -7,12 +7,11 @@ class Program
     static void Main(string[] args)
     {
         Journal _journal = new Journal();
-        int menu = 0;
-        while (menu != 5)
+        bool menu = true;
+        while (menu)
         {
             Console.WriteLine("Please select one of the following choices: \n1. Write \n2. Display \n3. Load \n4. Save \n5. Quit");
             int _select = int.Parse(Console.ReadLine());
-            menu = _select;
             switch (_select)
             {
                 case 1:
@@ -27,6 +26,7 @@ class Program
                     _journal.SaveJournal(fileName);
                     break;
                 case 5:
+                menu = false;
                     break;
             }
         }
