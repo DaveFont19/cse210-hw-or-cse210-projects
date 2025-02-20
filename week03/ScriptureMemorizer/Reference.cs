@@ -7,7 +7,7 @@ class Reference
     private int _chapter, _verse, _endVerse;
     ReadFile _r = new ReadFile();
 
-    public void GetAllText()
+    public void SetAllText()
     {
         string _text = _r.ReadFiles();
         _allText = Regex.Split(_text, "&");

@@ -7,7 +7,7 @@ class Program
     {
         Reference _reference = new Reference();
         Scripture _scripture = new Scripture();
-        _reference.GetAllText();
+        _reference.SetAllText();
         _reference.SetReference();
         _scripture.DisplayText(_reference.GetReference());
         _scripture.DisplayText(_reference.GetText());
